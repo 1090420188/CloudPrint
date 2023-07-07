@@ -1,0 +1,98 @@
+<view class="bottom_bar">
+  <view style="margin-left:30rpx;  line-height: 70px;">打印张数:</view>
+  <view class="bottom_bar_btn" bindtap="printok">确认打印</view>
+</view>
+<view class="file_add" bindtap="getWxFile">
+  <view>
+    <image src="/images/add.png" mode="" />
+  </view>
+  <view>上传文件</view>
+</view>
+
+<scroll-view scroll-y="true"  style="height: {{screen_height-70}}px;">
+  <view class="file-list" wx:for="{{file_list}}" wx:key="id">
+    <view class="file-info ">
+      <view style="display: flex; width:600rpx;">
+        <view class="file-s-info">
+          <view class="file-s-info-size">{{item.pagesize}}</view>
+          <view class="file-s-info-way">{{item.pageway}}</view>
+          <view class="file-s-info-suffix">{{item.suffix}}</view>
+        </view>
+        <view class="file-info-extra">
+          <view class="file-info-extra-name" style="overflow: hidden;">{{item.name}}</view>
+          <view class="file-info-extra-color">{{item.pagecolor}}</view>
+          <view class="file-info-extra-set" bindtap="setFIle" data-item="{{item}}">
+            <view>
+              <image src="/images/set.png" />
+            </view>
+            <view style="margin-left: 5rpx;">打印设置</view>
+          </view>
+        </view>
+      </view>
+      <view class="file-info-delete" bindtap="deleteFile" data-item="{{item}}">
+        <image src="/images/close.png" mode=""/>
+      </view>
+    </view>
+    <view class="file-info-progress"></view>
+    <view class="file-info-page-count">
+      <view style="width: 450rpx; overflow: hidden;">总 1 页；打印1-1页；共 1 页</view>
+      <view style="width: 50rpx;"></view>
+      <view style=" width: 300rpx; overflow: hidden;">打印份数：{{item.pagecount}}份</view>
+    </view>
+  </view>
+  <view style="height: 200rpx;"></view>
+</scroll-view>
+
+<view class="printer-set" style="height:{{screen_height/4*3}}px;" 
+    wx:if="{{select_file!=''}}">
+  <view class="printer-param">
+    <view>打印颜色</view>
+      <view style="display: flex;" class="printer-param-view">
+        <view wx:for="{{file_limit.PrintPageColor}}" bindtap="setprintcolor" data-item="{{item.pagecolor}}"
+style="background-color:{{item.pagecolor==select_file.pagecolor?'#4a9ddf':'#fff'}};border:{{item.pagecolor==select_file.pagecolor?'none':'1px solid #DCDFE6'}};color:{{item.pagecolor==select_file.pagecolor?'#fff':'#303133'}};" >
+          {{item.pagecolor}}
+        </view>
+      </view>
+  </view>
+  <view class="printer-line"></view>
+  <view class="printer-param">
+    <view>打印尺寸</view>
+    <view>
+      <view style="display: flex;">
+        <view wx:for="{{file_limit.PrintPageColor}}" wx:for-item="p">
+          <view wx:if="{{select_file.pagecolor==p.pagecolor}}"  class="printer-param-view" style="display: flex;">
+            <view wx:for="{{p.pagesize}}" bindtap="setprintsize" data-item="{{item}}"
+            style="background-color:{{item==select_file.pagesize?'#4a9ddf':'#fff'}};border:{{item==select_file.pagesize?'none':'1px solid #DCDFE6'}};color:{{item==select_file.pagesize?'#fff':'#303133'}};">
+              {{item}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="printer-line"></view>
+  <view class="printer-param">
+    <view>打印方式</view>
+    <view>
+      <view style="display: flex;" class="printer-param-view">
+        <view wx:for="{{file_limit.PrintWay}}" bindtap="setprintway" data-item="{{item}}"
+        style="background-color:{{item==select_file.printway?'#4a9ddf':'#fff'}};border:{{item==select_file.printway?'none':'1px solid #DCDFE6'}};color:{{item==select_file.printway?'#fff':'#303133'}};">{{item}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="printer-line"></view>
+  <view class="printer-param" >
+    <view>打印份数</view>
+    <view class="printer-param-count">
+      <view bindtap="setprintcount" data-item="1">-</view>
+      <input type="number" value="{{select_file.pagecount}}" bindblur="setprintcount"  data-item="2"/>
+      <view  bindtap="setprintcount"  data-item="3" >+</view>
+    </view>
+  </view>
+  <view class="printer-set-btn">
+    <view bindtap="printsetover">确定配置</view>
+  </view>
+</view>
+<view class="printer-cover" wx:if="{{select_file!=''}}"  bindtap="printsetover">
+ 
+</view>

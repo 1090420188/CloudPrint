@@ -1,0 +1,52 @@
+<view class="printer-back">
+    <image src="/images/back.png" mode=""/>
+</view>
+<view class="printer-info" >
+  <view style="display: flex;  margin-left: 25px;margin-top: 50px;"> 
+    <view>
+      <image src="/images/shop.png" />
+    </view>
+    <view style="height: 75px; line-height: 75px; margin-left: 10px;color: #fff;">
+      <view style="font-size: x-large; font-weight: 500;">图文打印</view>
+    </view>
+  </view>
+</view>
+<view class="printer-name">
+  <view>
+    <image src="/images/address.png" />
+  </view>
+  <view style="line-height: 50px;margin-left: 20rpx;color: #303133;font-size: small;font-weight: 300;">
+    山西省阳泉市盂县
+  </view>
+</view>
+
+<view class="printer-bar" style="margin-top: 70px;" bindtap="navtoaddfile">
+  <view class="printer-bar-image"  >
+    <image src="/images/wxDoc.png" mode=""/>
+  </view>
+  <view class="printer-bar-text" >
+    <view style="display: flex; flex-direction: column;justify-content:space-between;">
+    <view></view>
+      <view style="color: #0070FF; font-weight: 500; font-size: x-large;">图文打印</view>
+    </view>
+    <view style="margin-top: 10rpx; color:#303133; font-size: small;">
+      wps | word | doc | docx |  pdf | 图片
+    </view>
+  </view>
+</view>
+<view class="printer-bar" >
+  <view class="printer-bar-image">
+    <image src="/images/wxDoc.png" mode=""/>
+  </view>
+  <view class="printer-bar-text">
+    <view style="display: flex; flex-direction: column;justify-content:space-between;">
+    <view></view>
+      <view style="color: #0070FF; font-weight: 500; font-size: x-large;">
+        照片冲印
+      </view>
+    </view>
+    <view style="margin-top: 10rpx; color:#303133; font-size: small;">
+      一寸 | 二寸 
+    </view>
+  </view>
+</view>

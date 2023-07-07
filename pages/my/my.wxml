@@ -1,0 +1,52 @@
+<view class="user">
+  <view>
+    <view class="user-img round" wx:if="{{hasuserInfo}}" style="background-image:url({{userInfo.avatarUrl}});"></view>
+  </view>
+  <view class="login" >
+    <button wx:if="{{!hasuserInfo}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+  </view>
+</view>
+
+<view class="func-list">
+  <view class="func-list-item">
+    <view style="display: flex;">
+      <view class="func-list-item-image"> 
+        <image src="/images/my/order.png" 
+        style="width: 70rpx;height:70rpx;"/>
+      </view>
+      <view class="func-list-item-text">我的打印订单</view>
+    </view>
+    <view class="func-list-item-split"> > </view>
+  </view>
+  <view class="line"></view>
+  <view class="func-list-item">
+    <view style="display: flex;">
+      <view class="func-list-item-image">
+         <image src="/images/my/image.png" style="width:55rpx;height:55rpx;"/>
+      </view>
+      <view  class="func-list-item-text">我的照片订单</view>
+    </view>
+    <view class="func-list-item-split"> > </view>
+  </view>
+  <view class="line"></view>
+  <view class="func-list-item">
+    <view style="display: flex;">
+      <view class="func-list-item-image">
+         <image src="/images/my/notice.png" style="width:55rpx;height:55rpx;"/>
+      </view>
+      <view  class="func-list-item-text">打印通知</view>
+    </view>
+    <view class="func-list-item-split">
+      <switch  disabled="true"/>
+    </view>
+  </view>
+</view>
+
+<view class="func-list" style="margin-top: 50px;" wx:if="{{showmerchant}}">
+  <view class="func-list-item">
+      <view class="func-list-item-text" style="margin-left: 20px;">成为商户</view>
+    <view class="func-list-item-split"> 
+      <switch  disabled="{{merchanant_disabled}}" checked="{{is_merchant}}" bindchange="setmerchant"/> 
+    </view>
+  </view>
+</view>

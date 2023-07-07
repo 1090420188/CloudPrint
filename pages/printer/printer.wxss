@@ -1,0 +1,53 @@
+.printer-info{
+  width: 750rpx;
+  height: 200px;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+}
+.printer-back image{
+  width: 750rpx;
+  height: 150px;
+  border-radius: 0px 0px 50px 50px;
+}
+.printer-info image{
+  width: 75px;
+  height: 75px;
+}
+.printer-name{
+  width: 650rpx;
+  height: 50px;
+  position: absolute;
+  background-color: #fff;
+  top: 130px;
+  margin-left: 50rpx;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+  display: flex;
+}
+.printer-name image{
+  width: 25px;
+  height: 25px;
+  margin-left: 40rpx;
+  margin-top: 12.5px;
+}
+
+.printer-bar{
+  margin-top: 20px;
+  width: 700rpx;
+  margin-left: 25rpx;
+  height: 200rpx; 
+  background-color: #fff;
+  display: flex;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+}
+.printer-bar-image image{
+  width: 200rpx;
+  height: 150rpx;
+  margin-top: 25rpx;
+
+}
+.printer-bar-text view{
+  height: 100rpx;
+}
